@@ -1,0 +1,29 @@
+global:
+  resolve_timeout: 1m
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: 'email-notifications'
+
+receivers:
+- name: 'email-notifications'
+  email_configs:
+  - to: 'prommonitoringmayor@gmail.com'
+    from: 'prommonitoringmayor@gmail.com'
+    smarthost: 'smtp.gmail.com:587'
+    auth_username: 'prommonitoringmayor@gmail.com'
+    auth_password: 'alertmanager'
+    auth_identity: 'prommonitoringmayor@gmail.com'
+    send_resolved: true
+    #auth_secret: 'your_password'
+    #require_tls: true
+
+inhibit_rules:
+- source_match:
+    severity: 'critical'
+  target_match:
+    severity: 'warning'
+  equal: ['alertname', 'dev', 'instance']
