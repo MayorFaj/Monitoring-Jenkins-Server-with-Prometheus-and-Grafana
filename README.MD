@@ -172,7 +172,7 @@ copy the `ID`, and head back to the grafana server, click on import and paste th
 
 Our dashboard is up for visualization and monitoring
 
-![dashboard-is-up](./images/grafan-dashboard-up.png)
+![garana-up](./images/grafana-available-jenkins.png)
 
 ## Step 5
 
@@ -243,3 +243,4 @@ Edit the script (alertmanager.yml file) accordingly
 
 `./alertmanager.yml`
 
+Check you mail to confirm alert sent.
